@@ -14,9 +14,9 @@ function App() {
         <Navbar></Navbar>
         <Suspense fallback={<About />}>
         <Routes>
-        <Route exact path="/financial-scraping-overview" element={<ProjectOverview/>}>
+        <Route exact path="/project-overview" element={<ProjectOverview/>}>
         </Route>
-        <Route exact path="/TwitterTool" element={<TwitterTool/>}>
+        <Route exact path="/twitter-analysis-tool" element={<TwitterTool/>}>
         </Route>
           <Route exact path="/about" element={<About/>}>
           </Route>

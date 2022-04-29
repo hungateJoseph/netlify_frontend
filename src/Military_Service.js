@@ -18,7 +18,7 @@ export default function Military_Service() {
         long-range radar capabilities and missile-interception technology.
         <br /><br />
         My first major assignment was in Suwon, South Korea, where I served as a platoon leader and Tactical Control Officer (TCO). This was a demanding
-        role with a myriad of responsibilites, including monitoring for and intercepting Tatical Ballistic Missiles, commanding convoys across the 
+        role with a myriad of responsibilities, including monitoring for and intercepting Tactical Ballistic Missiles, commanding convoys across the 
         peninsula, and officiating live-fire ranges. (Picture here)
         <br /><br /> 
         I finished my military career in Fort Bliss, TX, where I served as a company executive officer and operations officer. This was a senior

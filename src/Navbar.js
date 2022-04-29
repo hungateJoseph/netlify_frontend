@@ -73,7 +73,7 @@ export default function Navbar() {
           setFin(!fin)
         }}>Political Tweet Analysis</p>
         <div className={`${fin ? 'phone-active' : 'hidden'}`}>
-        <Link exact to="/financial-scraping-overview">
+        <Link exact to="/twitter-analysis-tool">
         <a className='phone-menu sub'  onClick={() => {
         setHamburger(false);
         }}>
@@ -108,10 +108,10 @@ export default function Navbar() {
       }} className='header-link-text'>Political Tweet Tool</a>
       <div className={`financial-subhead ${fin ? 'financial-active' : ''}`}>
         <p>|</p>
-        <Link exact to="/financial-scraping-overview">
+        <Link exact to="/project-overview">
         <p style={{textAlign:'right'}}><a>Project Overview</a></p>
         </Link>
-        <Link exact to="/TwitterTool">
+        <Link exact to="/twitter-analysis-tool">
         <a>Analysis Tool</a>
         </Link>
       </div>
