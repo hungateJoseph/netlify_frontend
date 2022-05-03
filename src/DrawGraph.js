@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {Bar, Line, Pie, Scatter} from 'react-chartjs-2'
-// import Chart from 'chart.js'
 import Select from 'react-select'
 import LineGraph from 'react-line-graph'
 
@@ -104,7 +103,6 @@ function ClickCountButton2(data1) {
 
     const graphHandler = e => {
         setGraph(e);
-        // selectedHouse = e.value
         console.log("buton clicked ", e);
         RunPythonMain(data1)
     }
@@ -145,7 +143,6 @@ function ClickCountButton2(data1) {
                 width={600}
                 />
             
-            {/* <div className={`button ${day !== '' && 'button-active'}`}><p style={{ paddingTop:'18px' }}>View data</p></div> */}
 
             </div>
             <div>
@@ -171,10 +168,8 @@ function ClickCountButton2(data1) {
                 </div>
 
 
-                {/* <div className={`bar-chart`}> */}
                     <input type="button" class="inline" id="one" value="Bar Graph" onClick={() => graphHandler(true)}/>
                     <input type="button" class="inline" id="one" value="Line Graph" onClick={() => graphHandler(false)}/>
-                {/* </div> */}
 
     
             </>
@@ -200,16 +195,54 @@ function ClickCountButton2(data1) {
         // console.log("dict stripped is ", dict[0])
         // console.log("final array ", final_array)
         var dict = []
-        var last_sentiment = 0.0
-                for (let i = 0; i < 100; i ++) {
-                    // return Math.random() * (max - min) + min
-                    var new_val = 0.0
-                    let test_val = Math.random() * (0.2 - 0.1) + 0.1
-                    if (last_sentiment + test_val > 0.99) {
-                        new_val = last_sentiment - test_val
+        if (inputhouse == "Senate" && inputparty != "Both" && inputstate != "") {
+            dict.push({
+                x: Math.random() * 25000,
+                y: Math.random() * (0.8 - 0.1) + 0.1
+            })
+            dict.push({
+                x: Math.random() * 25000 + 25000,
+                y: Math.random() * (0.8 - 0.1) + 0.1
+            })
+        }
+            else if (inputhouse == "Senate" && inputparty == "Both" && inputstate != "") {
+                dict.push({
+                    x: Math.random() * 25000,
+                    y: Math.random() * (0.8 - 0.1) + 0.1
+                })
+                dict.push({
+                    x: Math.random() * 25000 + 25000,
+                    y: Math.random() * (0.8 - 0.1) + 0.1
+                })
+                dict.push({
+                    x: Math.random() * 50000 + 50000,
+                    y: Math.random() * (0.8 - 0.1) + 0.1
+                })
+                dict.push({
+                    x: Math.random() * 100000 + 80000,
+                    y: Math.random() * (0.8 - 0.1) + 0.1
+                })
+            }
+        
+        else {
+            
+            var last_sentiment = 0.3
+            var switcher = 1
+                for (let i = 0; i < 70; i ++) {
+                    if (i % 10 == 0) {
+                        switcher = switcher * (-1)
                     }
-                    else {
-                        new_val = last_sentiment + test_val
+                    // return Math.random() * (max - min) + min
+                    // start = 0.3, max is 0.8
+                    let new_val = 0.0
+                    let add_on = (Math.random() * (0.1 - 0.05) + 0.05) * switcher
+                    if (last_sentiment + add_on > 0.85) {
+                        new_val = last_sentiment - add_on
+                        switcher = switcher * (-1)
+                    }
+                    else if (last_sentiment - add_on < 0.1) {
+                        new_val = last_sentiment + add_on
+                        switcher = switcher * (-1)
                     }
                     dict.push({
                         x: Math.random() * (1000*(i+1) - 1000*i) + 1000*i,
@@ -217,6 +250,8 @@ function ClickCountButton2(data1) {
                     })
                     last_sentiment = new_val 
                 }
+        }
+        
                 console.log("dict is ", dict)
         return (
             
